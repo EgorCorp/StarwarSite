@@ -10,7 +10,7 @@ const _imageBase = 'https://starwars-visualguide.com/assets/img'
 const StarshipCard = ({selectedShip}) => {
   const num = extractId(selectedShip.fullInfo.url)
   const url = _imageBase + '/starships/' + num + '.jpg'
-  const numberNull = 0
+
   return (
     <Card style={{width: '18rem'}}>
       <Card.Img variant="top" src={url} />

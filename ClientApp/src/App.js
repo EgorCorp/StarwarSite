@@ -1,23 +1,24 @@
-import React, { Component } from 'react';
-import { Route } from 'react-router';
-import { Layout } from './components/Layout';
-import  Home from './components/Home';
-
+import React, {Component} from 'react'
+import {Route} from 'react-router'
+import {Layout} from './components/Layout'
+import Home from './components/Home'
 
 import './custom.css'
-import Starships from './components/starships/starships';
-import People from './components/people/people';
+import Starships from './components/starships/starships'
+import People from './components/people/people'
+import Planets from './components/planets/planets'
 
 export default class App extends Component {
-  static displayName = App.name;
+  static displayName = App.name
 
-  render () {
+  render() {
     return (
       <Layout>
-        <Route exact path='/' component={Home} />
-        <Route path='/starships' component={Starships} />
-        <Route path='/people' component={People} />
+        <Route exact path="/" component={Home} />
+        <Route path="/starships" component={Starships} />
+        <Route path="/people" component={People} />
+        <Route path="/planets" component={Planets} />
       </Layout>
-    );
+    )
   }
 }
