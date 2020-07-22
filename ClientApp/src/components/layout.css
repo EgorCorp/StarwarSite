@@ -1,4 +1,5 @@
 body {
-  background-image: url('./фон.jpg');
+  background: url('./фон.jpg'), no-repeat;
+  background-size: 100%;
   color: darkgray;
 }

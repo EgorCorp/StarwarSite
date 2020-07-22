@@ -39,9 +39,8 @@ export class NavMenu extends Component {
             light
           >
             <Container>
-              <NavbarBrand tag={Link} to="/">
-                <img className="logoImg" src={Logo} />
-              </NavbarBrand>
+              <img className="logoImg" src={Logo} />
+              <NavbarBrand tag={Link} to="/"></NavbarBrand>
               <NavbarToggler onClick={this.toggleNavbar} className="mr-2" />
               <Collapse
                 className="d-sm-inline-flex flex-sm-row-reverse"
@@ -50,22 +49,22 @@ export class NavMenu extends Component {
               >
                 <ul className="navbar-nav flex-grow">
                   <NavItem>
-                    <NavLink tag={Link} className="text-dark" to="/">
+                    <NavLink tag={Link} className="text-" to="/">
                       Home
                     </NavLink>
                   </NavItem>
                   <NavItem>
-                    <NavLink tag={Link} className="text-dark" to="/starships">
+                    <NavLink tag={Link} className="text-" to="/starships">
                       Starships
                     </NavLink>
                   </NavItem>
                   <NavItem>
-                    <NavLink tag={Link} className="text-dark" to="/people">
+                    <NavLink tag={Link} className="text-" to="/people">
                       People
                     </NavLink>
                   </NavItem>
                   <NavItem>
-                    <NavLink tag={Link} className="text-dark" to="/planets">
+                    <NavLink tag={Link} className="text-" to="/planets">
                       Planets
                     </NavLink>
                   </NavItem>

@@ -8,14 +8,13 @@
 .main {
   color: azure;
   font-family: 'Montserrat', sans-serif;
-  text-align: center;
 }
 
 .value {
   color: azure;
 }
 
-.Starships {
+.starships {
   display: flex;
   flex-direction: column;
   justify-content: center;
@@ -33,5 +32,5 @@ A:active {
 }
 A:hover {
   text-decoration: none;
-  color: orange;
+  color: plum;
 }

@@ -37,7 +37,7 @@ const Starships = () => {
         <div className="main">
           <div className="caption">Starships</div>
           {starshipList.map((ship) => (
-            <div key={ship.name} className="Starships">
+            <div key={ship.name} className="starships">
               <a
                 href="#"
                 className="value"
@@ -45,7 +45,7 @@ const Starships = () => {
               >
                 {ship.name}
               </a>
-              <div className="StarshipCard">
+              <div className="starshipCard">
                 {selectedStarship &&
                   selectedStarship.shipName === ship.name && (
                     <StarshipCard selectedShip={selectedStarship} />

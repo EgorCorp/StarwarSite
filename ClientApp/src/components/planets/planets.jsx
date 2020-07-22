@@ -17,7 +17,7 @@ const Planets = () => {
         setPlanetList(planets.data.results)
         setShowSpinner(false)
       })
-    }, 1000)
+    }, 0)
   }, [])
   const handleClick = (event, planet) => {
     event.preventDefault()
@@ -29,19 +29,20 @@ const Planets = () => {
     <div>
       {showSpinner && <Spinner animation="border" variant="light" />}
       {planetList && (
-        <div className="mainPlanet">
-          <div className="header">Planets</div>
+        <div className="main">
+          <div className="caption">Planets</div>
           {planetList.map((planet) => (
-            <div>
+            <div className="planets">
               <a
                 key={planet.name}
                 href="#"
+                className="value"
                 onClick={(event) => handleClick(event, planet)}
               >
                 {planet.name}
                 <br />
               </a>
-              <div>
+              <div className="planetCard">
                 {selectedPlanet && selectedPlanet.name === planet.name && (
                   <PlanetCard selectedPlanet={selectedPlanet} />
                 )}

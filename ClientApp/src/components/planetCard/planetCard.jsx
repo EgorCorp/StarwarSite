@@ -1,6 +1,6 @@
 import React from 'react'
 import Card from 'react-bootstrap/Card'
-// import './starshipCard.css'
+import './planetCard.css'
 
 const extractId = (url) => {
   const idRegExp = /\/([0-9]*)\/$/
@@ -17,26 +17,25 @@ const PlanetCard = ({selectedPlanet}) => {
       <Card.Body>
         <Card.Title>{selectedPlanet.name}</Card.Title>
         <Card.Text>
-          {/* Climate: {selectedPlanet.climate}
+          Climate: {selectedPlanet.climate}
           <br />
-          Created: {selectedPlanet.}
+          Created: {selectedPlanet.created}
           <br />
-          : {selectedPlanet.}
+          Diameter: {selectedPlanet.diameter}
           <br />
-          : {selectedPlanet.}
+          Edited: {selectedPlanet.edited}
           <br />
-          : {selectedPlanet.}
+          Gravity: {selectedPlanet.gravity}
           <br />
-          : {selectedPlanet.}
+          Orbital period: {selectedPlanet.orbital_period}
           <br />
-          : {selectedPlanet.}
+          Population: {selectedPlanet.population}
           <br />
-          : {selectedPlanet.}
+          Rotation period: {selectedPlanet.rotation_period}
           <br />
-          : {selectedPlanet.}
+          Surface water: {selectedPlanet.surface_water}
           <br />
-          : {selectedPlanet.}
-          <br /> */}
+          Terrain: {selectedPlanet.terrain}
         </Card.Text>
       </Card.Body>
     </Card>

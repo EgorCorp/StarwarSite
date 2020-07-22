@@ -1,0 +1,34 @@
+.caption {
+  font-weight: 100;
+  font-size: 50px;
+  text-align: center;
+}
+.main {
+  color: azure;
+  font-family: 'Montserrat', sans-serif;
+}
+
+.value {
+  color: azure;
+}
+
+.planets {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+A:link {
+  text-decoration: none;
+}
+A:visited {
+  text-decoration: none;
+}
+A:active {
+  text-decoration: none;
+}
+A:hover {
+  text-decoration: none;
+  color: plum;
+}

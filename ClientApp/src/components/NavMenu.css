@@ -2,7 +2,6 @@
   white-space: normal;
   text-align: center;
   word-break: break-all;
-  color: darkgrey;
 }
 
 html {
@@ -14,17 +13,23 @@ html {
   }
 }
 
+.nav-item {
+  font-weight: 500;
+}
+
 .myNav {
   background-color: azure;
 }
-.navbar a {
-  color: lightsteelblue;
+
+.nav-link {
+  color: plum;
 }
+
 .box-shadow {
   box-shadow: 0 0.25rem 0.75rem rgba(0, 0, 0, 0.05);
 }
 
-.logoImg{
+.logoImg {
   height: 20%;
   width: 20%;
   margin-right: 20px;
