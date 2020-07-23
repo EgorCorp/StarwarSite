@@ -8,36 +8,36 @@ const extractId = (url) => {
 }
 const _imageBase = 'https://starwars-visualguide.com/assets/img'
 const StarshipCard = ({selectedShip}) => {
-  const num = extractId(selectedShip.fullInfo.url)
+  const num = extractId(selectedShip.url)
   const url = _imageBase + '/starships/' + num + '.jpg'
 
   return (
     <Card style={{width: '18rem'}}>
       <Card.Img variant="top" src={url} />
       <Card.Body>
-        <Card.Title>{selectedShip.fullInfo.name}</Card.Title>
+        <Card.Title>{selectedShip.name}</Card.Title>
         <Card.Text>
-          Model: {selectedShip.fullInfo.model}
+          Model: {selectedShip.model}
           <br />
-          Manufacturer: {selectedShip.fullInfo.manufacturer}
+          Manufacturer: {selectedShip.manufacturer}
           <br />
-          Class: {selectedShip.fullInfo.starship_class}
+          Class: {selectedShip.starship_class}
           <br />
-          Cost: {selectedShip.fullInfo.cost_in_credits}
+          Cost: {selectedShip.cost_in_credits}
           <br />
-          Speed: {selectedShip.fullInfo.max_atmosphering_speed}
+          Speed: {selectedShip.max_atmosphering_speed}
           <br />
-          Hyperdrive Rating: {selectedShip.fullInfo.hyperdrive_rating}
+          Hyperdrive Rating: {selectedShip.hyperdrive_rating}
           <br />
-          MGLT: {selectedShip.fullInfo.MGLT}
+          MGLT: {selectedShip.MGLT}
           <br />
-          Length: {selectedShip.fullInfo.length}
+          Length: {selectedShip.length}
           <br />
-          Cargo Capacity: {selectedShip.fullInfo.cargo_capacity}
+          Cargo Capacity: {selectedShip.cargo_capacity}
           <br />
-          Mimimum Crew: {selectedShip.fullInfo.crew}
+          Mimimum Crew: {selectedShip.crew}
           <br />
-          Passengers: {selectedShip.fullInfo.passengers}
+          Passengers: {selectedShip.passengers}
           <br />
         </Card.Text>
       </Card.Body>

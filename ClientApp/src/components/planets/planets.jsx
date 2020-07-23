@@ -29,26 +29,33 @@ const Planets = () => {
     <div>
       {showSpinner && <Spinner animation="border" variant="light" />}
       {planetList && (
-        <div className="main">
+        <div className="main1">
           <div className="caption">Planets</div>
-          {planetList.map((planet) => (
-            <div className="planets">
-              <a
-                key={planet.name}
-                href="#"
-                className="value"
-                onClick={(event) => handleClick(event, planet)}
-              >
-                {planet.name}
-                <br />
-              </a>
-              <div className="planetCard">
-                {selectedPlanet && selectedPlanet.name === planet.name && (
-                  <PlanetCard selectedPlanet={selectedPlanet} />
-                )}
+          <div className="planets">
+            <div className="row">
+              <div className="col-md">
+                {planetList.map((planet) => (
+                  <div className="planet">
+                    <a
+                      key={planet.name}
+                      href="#"
+                      className="value"
+                      onClick={(event) => handleClick(event, planet)}
+                    >
+                      {planet.name}
+                    </a>
+                  </div>
+                ))}
+              </div>
+              <div className="col-md">
+                <div className="planetCard">
+                  {selectedPlanet && (
+                    <PlanetCard selectedPlanet={selectedPlanet} />
+                  )}
+                </div>
               </div>
             </div>
-          ))}
+          </div>
         </div>
       )}
     </div>

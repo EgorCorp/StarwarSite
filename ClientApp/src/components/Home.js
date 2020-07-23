@@ -36,13 +36,7 @@ const Home = () => {
   }, [ships])
 
   const shipCard = () => (
-    <div>
-      {oneShip && (
-        <StarshipCard
-          selectedShip={{shipName: oneShip.name, fullInfo: oneShip}}
-        />
-      )}
-    </div>
+    <div>{oneShip && <StarshipCard selectedShip={oneShip} />}</div>
   )
 
   const planetCard = () => (

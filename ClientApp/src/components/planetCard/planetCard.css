@@ -1,0 +1,8 @@
+.card {
+  border: 7px outset plum;
+  border-radius: 10px;
+}
+
+.card-img-top {
+  border-top: 4px;
+}
