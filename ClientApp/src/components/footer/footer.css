@@ -1,0 +1,16 @@
+A:link {
+  color: azure;
+  text-decoration: none;
+}
+A:visited {
+  text-decoration: none;
+  color: azure;
+}
+A:active {
+  text-decoration: none;
+  color: azure;
+}
+A:hover {
+  text-decoration: none;
+  color: aqua;
+}
