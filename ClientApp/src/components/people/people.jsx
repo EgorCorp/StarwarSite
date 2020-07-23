@@ -3,6 +3,7 @@ import axios from 'axios'
 import Spinner from 'react-bootstrap/Spinner'
 import {useState, useEffect} from 'react'
 import PersonCard from '../peopleCard/peopleCard'
+import './people.css'
 
 const People = () => {
   const [peopleList, setPeopleList] = useState(null)
