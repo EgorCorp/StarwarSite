@@ -1,5 +1,6 @@
 import React from 'react'
 import Card from 'react-bootstrap/Card'
+import {FormatDateForView} from '../../utils/utils'
 
 const extractId = (url) => {
   const idRegExp = /\/([0-9]*)\/$/
@@ -20,9 +21,9 @@ const PersonCard = ({person}) => {
         <Card.Text>
           Birthday: {person.birth_year}
           <br />
-          Created: {person.created}
+          Created: {FormatDateForView(person.created)}
           <br />
-          Edited: {person.edited}
+          Edited: {FormatDateForView(person.edited)}
           <br />
           Eye color: {person.eye_color}
           <br />

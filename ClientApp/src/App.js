@@ -7,6 +7,7 @@ import './custom.css'
 import Starships from './components/starships/starships'
 import People from './components/people/people'
 import Planets from './components/planets/planets'
+import Vehicles from './components/vehicles/vehicles'
 
 export default class App extends Component {
   static displayName = App.name
@@ -18,6 +19,7 @@ export default class App extends Component {
         <Route path="/starships" component={Starships} />
         <Route path="/people" component={People} />
         <Route path="/planets" component={Planets} />
+        <Route path="/vehicles" component={Vehicles} />
       </Layout>
     )
   }

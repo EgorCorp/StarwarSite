@@ -5,6 +5,8 @@ import StarshipCard from './starshipCard/starshipCard'
 import PlanetCard from './planetCard/planetCard'
 import PersonCard from './peopleCard/peopleCard'
 
+//todo: форматирование числовых значений. Установить http://numeraljs.com/
+
 const Home = () => {
   const [ships, setShips] = useState([])
   const [oneShip, setOneShip] = useState(null)
