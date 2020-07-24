@@ -1,6 +1,7 @@
 import React from 'react'
 import Card from 'react-bootstrap/Card'
 import './planetCard.css'
+import {FormatDateForView} from '../../utils/utils'
 
 const extractId = (url) => {
   const idRegExp = /\/([0-9]*)\/$/
@@ -19,11 +20,11 @@ const PlanetCard = ({selectedPlanet}) => {
         <Card.Text>
           Climate: {selectedPlanet.climate}
           <br />
-          Created: {selectedPlanet.created}
+          Created: {FormatDateForView(selectedPlanet.created)}
           <br />
           Diameter: {selectedPlanet.diameter}
           <br />
-          Edited: {selectedPlanet.edited}
+          Edited: {FormatDateForView(selectedPlanet.edited)}
           <br />
           Gravity: {selectedPlanet.gravity}
           <br />

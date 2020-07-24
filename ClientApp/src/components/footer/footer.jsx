@@ -11,6 +11,15 @@ const Footer = () => {
             <hr />
             &copy; {new Date().getFullYear()} Copyright:{' '}
             <a href="#"> Egor Lukashin</a>
+            <a
+              style={{marginLeft: '20px'}}
+              href="https://starwars-visualguide.com/#/"
+            >
+              Visual guide
+            </a>
+            <a style={{marginLeft: '20px'}} href="https://swapi.dev/">
+              Api
+            </a>
           </MDBContainer>
         </div>
       </MDBFooter>
