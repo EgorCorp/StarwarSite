@@ -1,5 +1,5 @@
 body {
-  background: linear-gradient(-0.3turn, plum, aqua);
+  background-image: url(./фон.jpg);
   height: 100%;
   color: darkgray;
 }
