@@ -35,9 +35,8 @@ const People = () => {
             <div className="row">
               <div className="col-md">
                 {peopleList.map((people) => (
-                  <div className="people">
+                  <div key={people.name} className="people">
                     <a
-                      key={people.name}
                       href="#"
                       className="value"
                       onClick={(event) => handleClick(event, people)}

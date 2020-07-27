@@ -1,11 +1,13 @@
 import React from 'react'
 import Card from 'react-bootstrap/Card'
 import './starshipCard.css'
+import {formatValue} from '../../utils/utils'
 
 const extractId = (url) => {
   const idRegExp = /\/([0-9]*)\/$/
   return url.match(idRegExp)[1]
 }
+
 const _imageBase = 'https://starwars-visualguide.com/assets/img'
 const StarshipCard = ({selectedShip}) => {
   const num = extractId(selectedShip.url)
@@ -17,27 +19,37 @@ const StarshipCard = ({selectedShip}) => {
       <Card.Body>
         <Card.Title>{selectedShip.name}</Card.Title>
         <Card.Text>
-          Model: {selectedShip.model}
+          Model: {formatValue(selectedShip.model, false)}
+          Manufacturer:
+          <span className="starValue">{selectedShip.manufacturer}</span>
           <br />
-          Manufacturer: {selectedShip.manufacturer}
+          Class:
+          <span className="starValue"> {selectedShip.starship_class}</span>
           <br />
-          Class: {selectedShip.starship_class}
+          Cost:{' '}
+          <span className="starValue">
+            {formatValue(selectedShip.cost_in_credits, true)}
+          </span>
+          Speed:{' '}
+          <span className="starValue">
+            {selectedShip.max_atmosphering_speed}
+          </span>
           <br />
-          Cost: {selectedShip.cost_in_credits}
+          Hyperdrive Rating:{' '}
+          <span className="starValue">{selectedShip.hyperdrive_rating}</span>
           <br />
-          Speed: {selectedShip.max_atmosphering_speed}
+          MGLT: <span className="starValue"> {selectedShip.MGLT}</span>
           <br />
-          Hyperdrive Rating: {selectedShip.hyperdrive_rating}
+          Length: <span className="starValue"> {selectedShip.length}</span>
           <br />
-          MGLT: {selectedShip.MGLT}
+          Cargo Capacity:{' '}
+          <span className="starValue">
+            {formatValue(selectedShip.cargo_capacity, true)}
+          </span>
+          Mimimum Crew: <span className="starValue"> {selectedShip.crew}</span>
           <br />
-          Length: {selectedShip.length}
-          <br />
-          Cargo Capacity: {selectedShip.cargo_capacity}
-          <br />
-          Mimimum Crew: {selectedShip.crew}
-          <br />
-          Passengers: {selectedShip.passengers}
+          Passengers:{' '}
+          <span className="starValue"> {selectedShip.passengers}</span>
           <br />
         </Card.Text>
       </Card.Body>

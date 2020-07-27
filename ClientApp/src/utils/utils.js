@@ -1,3 +1,6 @@
+import React from 'react'
+import numeral from 'numeral'
+
 export function FormatDateForView(date) {
   if (date) {
     const dateToFormat = new Date(date)
@@ -36,3 +39,12 @@ export {extractId}
 const _imageBase = 'https://starwars-visualguide.com/assets/img'
 
 export {_imageBase}
+
+const formatValue = (v, isNum) => (
+  <>
+    <span className="starValue">{isNum ? numeral(v).format('0,0') : v}</span>
+    <br />
+  </>
+)
+
+export {formatValue}

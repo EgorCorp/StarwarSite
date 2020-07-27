@@ -9,6 +9,7 @@ const Planets = () => {
   const [planetList, setPlanetList] = useState(null)
   const [showSpinner, setShowSpinner] = useState(false)
   const [selectedPlanet, setSelectedPlanet] = useState(null)
+  const [clear, setClear] = useState(true)
 
   useEffect(() => {
     setShowSpinner(true)
@@ -21,10 +22,15 @@ const Planets = () => {
   }, [])
   const handleClick = (event, planet) => {
     event.preventDefault()
+    setClear(true)
     setSelectedPlanet(planet)
+    setClear(false)
   }
-  console.log(planetList)
+  //console.log(planetList)
 
+  const showPlanet = () => {
+    return <PlanetCard selectedPlanet={selectedPlanet} clear={clear} />
+  }
   return (
     <div>
       {showSpinner && <Spinner animation="border" variant="light" />}
@@ -35,9 +41,8 @@ const Planets = () => {
             <div className="row">
               <div className="col-md">
                 {planetList.map((planet) => (
-                  <div className="planet">
+                  <div key={planet.name} className="planet">
                     <a
-                      key={planet.name}
                       href="#"
                       className="value"
                       onClick={(event) => handleClick(event, planet)}
@@ -49,9 +54,7 @@ const Planets = () => {
               </div>
               <div className="col-md">
                 <div className="planetCard">
-                  {selectedPlanet && (
-                    <PlanetCard selectedPlanet={selectedPlanet} />
-                  )}
+                  {selectedPlanet && showPlanet()}
                 </div>
               </div>
             </div>
