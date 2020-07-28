@@ -7,6 +7,28 @@
   font-weight: 100;
   font-size: 50px;
   text-align: center;
+  color: powderblue;
+  text-align: center;
+  animation: example infinite;
+  animation-duration: 10s;
+}
+
+@keyframes example {
+  0% {
+    color: powderblue;
+  }
+  25% {
+    color: plum;
+  }
+  50% {
+    color: powderblue;
+  }
+  75% {
+    color: plum;
+  }
+  100% {
+    color: powderblue;
+  }
 }
 
 .planets {
@@ -18,9 +40,8 @@
 
 .residentCard {
   display: flex;
-  flex-wrap: wrap;
   flex-direction: row;
-  justify-content: space-between;
+  justify-content: center;
   align-self: center;
 }
 

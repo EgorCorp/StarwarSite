@@ -2,7 +2,10 @@
   font-size: 60px;
   margin-bottom: 50px;
   font-weight: 100;
+  color: powderblue;
   text-align: center;
+  animation: example infinite;
+  animation-duration: 10s;
 }
 
 .item2 {
@@ -17,4 +20,22 @@
   align-items: flex-start;
   font-weight: 100;
   font-size: 40px;
+}
+
+@keyframes example {
+  0% {
+    color: powderblue;
+  }
+  25% {
+    color: plum;
+  }
+  50% {
+    color: powderblue;
+  }
+  75% {
+    color: plum;
+  }
+  100% {
+    color: powderblue;
+  }
 }

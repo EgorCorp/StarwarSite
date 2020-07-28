@@ -40,7 +40,10 @@ const PlanetCard = ({selectedPlanet, onClickMore}) => {
             <br />
             Gravity: {selectedPlanet.gravity}
             <br />
-            Residents: <button onClick={handleClick}>See more</button>
+            Residents:{' '}
+            <button className="btnResident" onClick={handleClick}>
+              See more
+            </button>
             <br />
             Orbital period: {selectedPlanet.orbital_period}
             <br />
