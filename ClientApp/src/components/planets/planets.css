@@ -16,6 +16,14 @@
   align-items: flex-start;
 }
 
+.residentCard {
+  display: flex;
+  flex-wrap: wrap;
+  flex-direction: row;
+  justify-content: space-between;
+  align-self: center;
+}
+
 A:link {
   text-decoration: none;
 }

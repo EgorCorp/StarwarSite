@@ -1,4 +1,4 @@
-import React, {useState} from 'react'
+import React, {useState, useEffect} from 'react'
 import Card from 'react-bootstrap/Card'
 import './planetCard.css'
 import {FormatDateForView, formatValue} from '../../utils/utils'
@@ -9,13 +9,19 @@ const extractId = (url) => {
   return url.match(idRegExp)[1]
 }
 const _imageBase = 'https://starwars-visualguide.com/assets/img'
-const PlanetCard = ({selectedPlanet, clear}) => {
+
+const PlanetCard = ({selectedPlanet, onClickMore}) => {
   const num = extractId(selectedPlanet.url)
   const url = _imageBase + '/planets/' + num + '.jpg'
-  const [urls, setUrls] = useState(null)
+  //
+
+  // useEffect(() => {
+  //   setUrls(null)
+  // }, [])
 
   const handleClick = (event) => {
-    setUrls(selectedPlanet.residents)
+    //
+    if (onClickMore) onClickMore(selectedPlanet.residents)
   }
 
   return (
@@ -47,9 +53,7 @@ const PlanetCard = ({selectedPlanet, clear}) => {
           </Card.Text>
         </Card.Body>
       </Card>
-      {((urls && urls.length > 0) || clear) && (
-        <Residents urls={urls} clear={clear} />
-      )}
+      {/*  */}
     </>
   )
 }

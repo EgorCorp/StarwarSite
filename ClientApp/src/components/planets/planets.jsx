@@ -4,12 +4,15 @@ import Spinner from 'react-bootstrap/Spinner'
 import './planets.css'
 import {useState, useEffect} from 'react'
 import PlanetCard from '../planetCard/planetCard'
+import Resident from '../resident/resident'
+import Residents from '../residents/residents'
 
 const Planets = () => {
   const [planetList, setPlanetList] = useState(null)
   const [showSpinner, setShowSpinner] = useState(false)
   const [selectedPlanet, setSelectedPlanet] = useState(null)
   const [clear, setClear] = useState(true)
+  const [urls, setUrls] = useState(null)
 
   useEffect(() => {
     setShowSpinner(true)
@@ -22,14 +25,18 @@ const Planets = () => {
   }, [])
   const handleClick = (event, planet) => {
     event.preventDefault()
-    setClear(true)
+    setUrls(null)
     setSelectedPlanet(planet)
-    setClear(false)
   }
   //console.log(planetList)
 
   const showPlanet = () => {
-    return <PlanetCard selectedPlanet={selectedPlanet} clear={clear} />
+    return (
+      <PlanetCard
+        selectedPlanet={selectedPlanet}
+        onClickMore={(urls) => setUrls(urls)}
+      />
+    )
   }
   return (
     <div>
@@ -57,6 +64,11 @@ const Planets = () => {
                   {selectedPlanet && showPlanet()}
                 </div>
               </div>
+            </div>
+          </div>
+          <div className="col-md">
+            <div className="residentCard">
+              {urls && urls.length > 0 && <Residents urls={urls} />}
             </div>
           </div>
         </div>

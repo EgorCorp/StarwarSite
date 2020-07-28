@@ -48,3 +48,8 @@ const formatValue = (v, isNum) => (
 )
 
 export {formatValue}
+
+const toHttps = (url) => {
+  return url.replace('http', 'https')
+}
+export {toHttps}

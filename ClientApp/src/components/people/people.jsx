@@ -23,7 +23,7 @@ const People = () => {
     event.preventDefault()
     setSelectedPeople(people)
   }
-  console.log(peopleList)
+  //console.log(peopleList)
 
   return (
     <div>
