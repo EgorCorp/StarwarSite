@@ -1,6 +1,7 @@
 import React from 'react'
 import './footer.css'
 import {MDBCol, MDBContainer, MDBRow, MDBFooter} from 'mdbreact'
+import '../animation/animation.css'
 
 const Footer = () => {
   return (
@@ -8,17 +9,26 @@ const Footer = () => {
       <MDBFooter color="blue" className="font-small pt-4 mt-4">
         <div className="footer-copyright text-center py-3">
           <MDBContainer fluid>
-            &copy; {new Date().getFullYear()} Copyright:{' '}
-            <a href="#"> Egor Lukashin</a>
-            <a
-              style={{marginLeft: '20px'}}
-              href="https://starwars-visualguide.com/#/"
-            >
-              Visual guide
-            </a>
-            <a style={{marginLeft: '20px'}} href="https://swapi.dev/">
-              Api
-            </a>
+            <div className="anLink">
+              Copyright:{' '}
+              <a className="effect-2" href="">
+                Egor Lukashin
+              </a>
+              &copy; {new Date().getFullYear()}
+            </div>
+            <div className="anLink">
+              <a
+                className="effect-2"
+                href="https://starwars-visualguide.com/#/"
+              >
+                Visual guide
+              </a>
+            </div>
+            <div clasName="anLink">
+              <a className="effect-2" href="https://swapi.dev/">
+                Api
+              </a>
+            </div>
           </MDBContainer>
         </div>
       </MDBFooter>
