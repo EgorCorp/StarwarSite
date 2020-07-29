@@ -10,7 +10,19 @@ A:active {
   text-decoration: none;
   color: azure;
 }
-A:hover {
-  text-decoration: none;
-  color: aqua;
+
+.question {
+  width: 3%;
+  height: 3%;
+  margin: auto 0;
+}
+
+.footerEgor {
+  display: flex;
+  justify-content: center;
+  background-color: gray;
+  margin-top: 50px;
+}
+.footerLink {
+  margin-left: 20px;
 }

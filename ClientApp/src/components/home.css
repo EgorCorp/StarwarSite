@@ -5,7 +5,7 @@
   color: powderblue;
   text-align: center;
   animation: example infinite;
-  animation-duration: 10s;
+  animation-duration: 13s;
 }
 
 .item2 {
@@ -27,13 +27,13 @@
     color: powderblue;
   }
   25% {
-    color: plum;
+    color: rebeccapurple;
   }
   50% {
     color: powderblue;
   }
   75% {
-    color: plum;
+    color: rebeccapurple;
   }
   100% {
     color: powderblue;

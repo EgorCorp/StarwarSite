@@ -17,12 +17,11 @@ html {
   font-weight: 500;
 }
 
-.myNav {
-  background-color: azure;
-}
-
 .nav-link {
   color: plum;
+}
+.navbar {
+  background-color: none;
 }
 
 .box-shadow {

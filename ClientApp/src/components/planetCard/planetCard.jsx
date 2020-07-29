@@ -40,12 +40,7 @@ const PlanetCard = ({selectedPlanet, onClickMore}) => {
             <br />
             Gravity: {selectedPlanet.gravity}
             <br />
-            Residents:{' '}
-            <button className="btnResident" onClick={handleClick}>
-              See more
-            </button>
-            <br />
-            Orbital period: {selectedPlanet.orbital_period}
+            Residents: Orbital period: {selectedPlanet.orbital_period}
             <br />
             Population: {formatValue(selectedPlanet.population, true)}
             Rotation period: {selectedPlanet.rotation_period}
@@ -53,6 +48,11 @@ const PlanetCard = ({selectedPlanet, onClickMore}) => {
             Surface water: {selectedPlanet.surface_water}
             <br />
             Terrain: {selectedPlanet.terrain}
+            <br />
+            <button className="btnResident" onClick={handleClick}>
+              Residents
+            </button>
+            <br />
           </Card.Text>
         </Card.Body>
       </Card>
