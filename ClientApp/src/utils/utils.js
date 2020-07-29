@@ -50,6 +50,14 @@ const formatValue = (v, isNum) => (
 export {formatValue}
 
 const toHttps = (url) => {
+  if (url.indexOf('https') === 0) return url
   return url.replace('http', 'https')
 }
 export {toHttps}
+
+const getVisualUrl = (type, url) => {
+  const _imageBase = 'https://starwars-visualguide.com/assets/img'
+  const num = extractId(url)
+  return _imageBase + '/' + type + '/' + num + '.jpg'
+}
+export {getVisualUrl}

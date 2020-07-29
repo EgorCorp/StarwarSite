@@ -24,7 +24,7 @@ const Footer = () => {
                 Visual guide
               </a>
             </div>
-            <div clasName="anLink">
+            <div className="anLink">
               <a className="effect-2" href="https://swapi.dev/">
                 Api
               </a>
