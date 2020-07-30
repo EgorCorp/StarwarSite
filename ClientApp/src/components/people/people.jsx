@@ -4,11 +4,14 @@ import Spinner from 'react-bootstrap/Spinner'
 import {useState, useEffect} from 'react'
 import PersonCard from '../peopleCard/peopleCard'
 import './people.css'
+import Dependencies from '../dependencies/dependencies'
 
 const People = () => {
   const [peopleList, setPeopleList] = useState(null)
   const [showSpinner, setShowSpinner] = useState(false)
   const [selectedPeople, setSelectedPeople] = useState(null)
+  const [homeUrls, setHomeUrls] = useState(null)
+  const [vehicleUrls, setVehicleUrls] = useState(null)
 
   useEffect(() => {
     setShowSpinner(true)
@@ -21,9 +24,11 @@ const People = () => {
   }, [])
   const handleClick = (event, people) => {
     event.preventDefault()
+    setHomeUrls(null)
+    setVehicleUrls(null)
     setSelectedPeople(people)
   }
-  //console.log(peopleList)
+  //console.log(vehicleUrls, selectedPeople)
 
   return (
     <div>
@@ -48,11 +53,19 @@ const People = () => {
               </div>
               <div className="col-md">
                 <div className="peopleCard">
-                  {selectedPeople && <PersonCard person={selectedPeople} />}
+                  {selectedPeople && (
+                    <PersonCard
+                      person={selectedPeople}
+                      onClickHome={(urls) => setHomeUrls(urls)}
+                      onClickVehicle={(urls) => setVehicleUrls(urls)}
+                    />
+                  )}
                 </div>
               </div>
             </div>
           </div>
+          <Dependencies urls={homeUrls} type="planets" />
+          <Dependencies urls={vehicleUrls} type="vehicles" />
         </div>
       )}
     </div>

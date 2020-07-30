@@ -1,0 +1,35 @@
+.btnDependency {
+  position: relative;
+  background-color: plum;
+  border: 2px solid plum;
+  border-radius: 7px;
+  font-size: 15px;
+  color: #ffffff;
+  padding: 10px;
+  width: 100px;
+  text-align: center;
+  transition-duration: 0.4s;
+  text-decoration: none;
+  overflow: hidden;
+  cursor: pointer;
+}
+
+.btnDependency:after {
+  content: '';
+  background: rgba(255, 199, 255, 0.726);
+  display: block;
+  position: absolute;
+  padding-top: 300%;
+  padding-left: 350%;
+  margin-left: -20px !important;
+  margin-top: -120%;
+  opacity: 0;
+  transition: all 0.8s;
+}
+
+.btnDependency:active:after {
+  padding: 0;
+  margin: 0;
+  opacity: 1;
+  transition: 0s;
+}

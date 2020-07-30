@@ -1,6 +1,7 @@
 import React from 'react'
 import Card from 'react-bootstrap/Card'
 import {FormatDateForView} from '../../utils/utils'
+import DependencyButton from '../dependencies/dependencyButton'
 
 const extractId = (url) => {
   const idRegExp = /\/([0-9]*)\/$/
@@ -9,9 +10,18 @@ const extractId = (url) => {
 
 const _imageBase = 'https://starwars-visualguide.com/assets/img'
 
-const PersonCard = ({person}) => {
+const PersonCard = ({person, onClickHome, onClickVehicle}) => {
   const num = extractId(person.url)
   const url = _imageBase + '/characters/' + num + '.jpg'
+
+  const handleHomeClick = (event) => {
+    //
+    if (onClickHome) onClickHome([person.homeworld])
+  }
+  const handleVehicleClick = (event) => {
+    console.log(person.vehicles, 'person.vehicles')
+    if (onClickVehicle) onClickVehicle(person.vehicles)
+  }
 
   return (
     <Card style={{width: '18rem'}}>
@@ -36,6 +46,17 @@ const PersonCard = ({person}) => {
           Mass: {person.mass}
           <br />
           Skin: {person.skin_color}
+          <br />
+          <DependencyButton
+            urls={[person.homeworld]}
+            label="Home"
+            onClick={handleHomeClick}
+          />
+          <DependencyButton
+            urls={person.vehicles}
+            label="Vehicles"
+            onClick={handleVehicleClick}
+          />
         </Card.Text>
       </Card.Body>
     </Card>

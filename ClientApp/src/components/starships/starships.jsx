@@ -3,6 +3,7 @@ import axios from 'axios'
 import './starships.css'
 import Spinner from 'react-bootstrap/Spinner'
 import StarshipCard from '../starshipCard/starshipCard'
+import Dependencies from '../dependencies/dependencies'
 
 const Starships = () => {
   const [starshipList, setStarshipList] = useState(null)
@@ -10,6 +11,7 @@ const Starships = () => {
   const [selectedStarship, setSelectedStarship] = useState(null)
 
   const [showSpinner, setShowSpinner] = useState(false)
+  const [pilotUrls, setPilotUrls] = useState(null)
   // const [starshipImg, setStarshipImg] = useState(null)
 
   useEffect(() => {
@@ -24,7 +26,7 @@ const Starships = () => {
 
   const handleStarshipImg = (event, ship) => {
     event.preventDefault()
-    console.log(ship)
+    setPilotUrls(null)
     setSelectedStarship(ship)
   }
 
@@ -40,7 +42,12 @@ const Starships = () => {
 
   const cardRender = () => (
     <div className="starshipCard">
-      {selectedStarship && <StarshipCard selectedShip={selectedStarship} />}
+      {selectedStarship && (
+        <StarshipCard
+          selectedShip={selectedStarship}
+          onClickMore={(urls) => setPilotUrls(urls)}
+        />
+      )}
     </div>
   )
 
@@ -63,6 +70,7 @@ const Starships = () => {
               <div className="col-md">{cardRender()}</div>
             </div>
           </div>
+          <Dependencies type="characters" urls={pilotUrls} />
         </div>
       )}
     </Fragment>

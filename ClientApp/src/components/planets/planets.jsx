@@ -6,6 +6,7 @@ import {useState, useEffect} from 'react'
 import PlanetCard from '../planetCard/planetCard'
 import Resident from '../resident/resident'
 import Residents from '../residents/residents'
+import Dependencies from '../dependencies/dependencies'
 
 const Planets = () => {
   const [planetList, setPlanetList] = useState(null)
@@ -66,11 +67,7 @@ const Planets = () => {
               </div>
             </div>
           </div>
-          <div className="col-md">
-            <div className="residentCard">
-              {urls && urls.length > 0 && <Residents urls={urls} />}
-            </div>
-          </div>
+          <Dependencies type="characters" urls={urls} />
         </div>
       )}
     </div>

@@ -3,6 +3,7 @@ import Card from 'react-bootstrap/Card'
 import './planetCard.css'
 import {FormatDateForView, formatValue} from '../../utils/utils'
 import Residents from '../residents/residents'
+import DependencyButton from '../dependencies/dependencyButton'
 
 const extractId = (url) => {
   const idRegExp = /\/([0-9]*)\/$/
@@ -49,14 +50,14 @@ const PlanetCard = ({selectedPlanet, onClickMore}) => {
             <br />
             Terrain: {selectedPlanet.terrain}
             <br />
-            <button className="btnResident" onClick={handleClick}>
-              Residents
-            </button>
-            <br />
+            <DependencyButton
+              urls={selectedPlanet.residents}
+              label="Residents"
+              onClick={handleClick}
+            />
           </Card.Text>
         </Card.Body>
       </Card>
-      {/*  */}
     </>
   )
 }
