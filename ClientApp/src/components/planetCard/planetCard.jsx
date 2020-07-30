@@ -41,7 +41,7 @@ const PlanetCard = ({selectedPlanet, onClickMore}) => {
             <br />
             Gravity: {selectedPlanet.gravity}
             <br />
-            Residents: Orbital period: {selectedPlanet.orbital_period}
+            Orbital period: {selectedPlanet.orbital_period}
             <br />
             Population: {formatValue(selectedPlanet.population, true)}
             Rotation period: {selectedPlanet.rotation_period}

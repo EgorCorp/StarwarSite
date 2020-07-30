@@ -6,7 +6,7 @@
 .card-img-top {
   border-top: 4px;
 }
-.btnResident {
+.btnDependency {
   position: relative;
   background-color: plum;
   border: 2px solid plum;
@@ -22,7 +22,7 @@
   cursor: pointer;
 }
 
-.btnResident:after {
+.btnDependency:after {
   content: '';
   background: rgba(255, 199, 255, 0.726);
   display: block;
@@ -35,7 +35,7 @@
   transition: all 0.8s;
 }
 
-.btnResident:active:after {
+.btnDependency:active:after {
   padding: 0;
   margin: 0;
   opacity: 1;

@@ -2,6 +2,7 @@ import React from 'react'
 import Card from 'react-bootstrap/Card'
 import {FormatDateForView} from '../../utils/utils'
 import DependencyButton from '../dependencies/dependencyButton'
+import './peopleCard.css'
 
 const extractId = (url) => {
   const idRegExp = /\/([0-9]*)\/$/
@@ -47,16 +48,19 @@ const PersonCard = ({person, onClickHome, onClickVehicle}) => {
           <br />
           Skin: {person.skin_color}
           <br />
-          <DependencyButton
-            urls={[person.homeworld]}
-            label="Home"
-            onClick={handleHomeClick}
-          />
-          <DependencyButton
-            urls={person.vehicles}
-            label="Vehicles"
-            onClick={handleVehicleClick}
-          />
+          <div className="peopleBtn">
+            {' '}
+            <DependencyButton
+              urls={[person.homeworld]}
+              label="Home"
+              onClick={handleHomeClick}
+            />
+            <DependencyButton
+              urls={person.vehicles}
+              label="Vehicles"
+              onClick={handleVehicleClick}
+            />
+          </div>
         </Card.Text>
       </Card.Body>
     </Card>
@@ -64,19 +68,3 @@ const PersonCard = ({person, onClickHome, onClickVehicle}) => {
 }
 
 export default PersonCard
-// birth_year: "19BBY"
-// created: "2014-12-09T13:50:51.644000Z"
-// edited: "2014-12-20T21:17:56.891000Z"
-// eye_color: "blue"
-// films: (4) ["http://swapi.dev/api/films/1/", "http://swapi.dev/api/films/2/", "http://swapi.dev/api/films/3/", "http://swapi.dev/api/films/6/"]
-// gender: "male"
-// hair_color: "blond"
-// height: "172"
-// homeworld: "http://swapi.dev/api/planets/1/"
-// mass: "77"
-// name: "Luke Skywalker"
-// skin_color: "fair"
-// species: []
-// starships: (2) ["http://swapi.dev/api/starships/12/", "http://swapi.dev/api/starships/22/"]
-// url: "http://swapi.dev/api/people/1/"
-// vehicles: (2) ["http://swapi.dev/api/vehicles/14/", "http://swapi.dev/api/vehicles/30/"]

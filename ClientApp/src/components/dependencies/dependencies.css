@@ -10,3 +10,7 @@
 .dependencyItem {
   margin-bottom: 30px;
 }
+
+.card-title {
+  font-size: 16px;
+}
