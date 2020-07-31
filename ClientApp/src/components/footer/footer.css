@@ -12,9 +12,16 @@ A:active {
 }
 
 .question {
-  width: 3%;
-  height: 3%;
+  width: 45px;
+  height: 45px;
   margin: auto 0;
+}
+
+.aboutLink {
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+  width: 100px;
 }
 
 .footerEgor {

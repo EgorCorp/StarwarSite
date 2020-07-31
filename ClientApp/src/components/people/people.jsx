@@ -12,6 +12,7 @@ const People = () => {
   const [selectedPeople, setSelectedPeople] = useState(null)
   const [homeUrls, setHomeUrls] = useState(null)
   const [vehicleUrls, setVehicleUrls] = useState(null)
+  const [starshipUrls, setStarshipUrls] = useState(null)
 
   useEffect(() => {
     setShowSpinner(true)
@@ -25,6 +26,7 @@ const People = () => {
   const handleClick = (event, people) => {
     event.preventDefault()
     setHomeUrls(null)
+    setStarshipUrls(null)
     setVehicleUrls(null)
     setSelectedPeople(people)
   }
@@ -58,6 +60,7 @@ const People = () => {
                       person={selectedPeople}
                       onClickHome={(urls) => setHomeUrls(urls)}
                       onClickVehicle={(urls) => setVehicleUrls(urls)}
+                      onClickStarship={(urls) => setStarshipUrls(urls)}
                     />
                   )}
                 </div>
@@ -66,6 +69,7 @@ const People = () => {
           </div>
           <Dependencies urls={homeUrls} type="planets" />
           <Dependencies urls={vehicleUrls} type="vehicles" />
+          <Dependencies urls={starshipUrls} type="starships" />
         </div>
       )}
     </div>

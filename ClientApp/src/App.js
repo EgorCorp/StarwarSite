@@ -9,6 +9,7 @@ import People from './components/people/people'
 import Planets from './components/planets/planets'
 import Vehicles from './components/vehicles/vehicles'
 import Dependencies from './components/dependencies/dependencies'
+import AboutSite from './components/aboutSite'
 
 const TestDependencies = () => {
   return (
@@ -46,6 +47,7 @@ export default class App extends Component {
         <Route path="/planets" component={Planets} />
         <Route path="/vehicles" component={Vehicles} />
         <Route path="/test" component={TestDependencies} />
+        <Route path="/about" component={AboutSite} />
       </Layout>
     )
   }

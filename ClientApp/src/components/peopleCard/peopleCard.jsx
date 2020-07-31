@@ -11,7 +11,7 @@ const extractId = (url) => {
 
 const _imageBase = 'https://starwars-visualguide.com/assets/img'
 
-const PersonCard = ({person, onClickHome, onClickVehicle}) => {
+const PersonCard = ({person, onClickHome, onClickVehicle, onClickStarship}) => {
   const num = extractId(person.url)
   const url = _imageBase + '/characters/' + num + '.jpg'
 
@@ -23,6 +23,31 @@ const PersonCard = ({person, onClickHome, onClickVehicle}) => {
     console.log(person.vehicles, 'person.vehicles')
     if (onClickVehicle) onClickVehicle(person.vehicles)
   }
+  const handleStarshipClick = (event) => {
+    if (onClickStarship) onClickStarship(person.starships)
+  }
+
+  const btnRender = () => (
+    <>
+      <div className="peopleBtn">
+        <DependencyButton
+          urls={[person.homeworld]}
+          label="Home"
+          onClick={handleHomeClick}
+        />
+        <DependencyButton
+          urls={person.vehicles}
+          label="Vehicles"
+          onClick={handleVehicleClick}
+        />
+        <DependencyButton
+          urls={person.starships}
+          label="Starships"
+          onClick={handleStarshipClick}
+        />
+      </div>
+    </>
+  )
 
   return (
     <Card style={{width: '18rem'}}>
@@ -48,20 +73,8 @@ const PersonCard = ({person, onClickHome, onClickVehicle}) => {
           <br />
           Skin: {person.skin_color}
           <br />
-          <div className="peopleBtn">
-            {' '}
-            <DependencyButton
-              urls={[person.homeworld]}
-              label="Home"
-              onClick={handleHomeClick}
-            />
-            <DependencyButton
-              urls={person.vehicles}
-              label="Vehicles"
-              onClick={handleVehicleClick}
-            />
-          </div>
         </Card.Text>
+        {btnRender()}
       </Card.Body>
     </Card>
   )

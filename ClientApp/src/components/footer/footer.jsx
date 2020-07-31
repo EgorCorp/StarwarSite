@@ -3,7 +3,8 @@ import './footer.css'
 import '../animation/animation.css'
 import questionNo from './QuestionNo.png'
 
-const Footer = () => {
+const Footer = (props) => {
+  const handleClickAbout = () => {}
   return (
     <div className="footerEgor">
       <div className="footerLink">
@@ -28,7 +29,9 @@ const Footer = () => {
           </a>
         </div>
       </div>
-      <img className="question" src={questionNo} alt="questNo" />
+      <a href="/about" className="aboutLink">
+        <img className="question" src={questionNo} alt="questNo" />
+      </a>
     </div>
   )
 }
