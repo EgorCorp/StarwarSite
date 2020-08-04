@@ -12,8 +12,8 @@ const Planets = () => {
   const [planetList, setPlanetList] = useState(null)
   const [showSpinner, setShowSpinner] = useState(false)
   const [selectedPlanet, setSelectedPlanet] = useState(null)
-  const [clear, setClear] = useState(true)
   const [urls, setUrls] = useState(null)
+  const [filmUrls, setFilmUrls] = useState(null)
 
   useEffect(() => {
     setShowSpinner(true)
@@ -27,15 +27,16 @@ const Planets = () => {
   const handleClick = (event, planet) => {
     event.preventDefault()
     setUrls(null)
+    setFilmUrls(null)
     setSelectedPlanet(planet)
   }
-  //console.log(planetList)
 
   const showPlanet = () => {
     return (
       <PlanetCard
         selectedPlanet={selectedPlanet}
         onClickMore={(urls) => setUrls(urls)}
+        onClickFilm={(urls) => setFilmUrls(urls)}
       />
     )
   }
@@ -68,6 +69,7 @@ const Planets = () => {
             </div>
           </div>
           <Dependencies type="characters" urls={urls} />
+          <Dependencies urls={filmUrls} type="films" />
         </div>
       )}
     </div>

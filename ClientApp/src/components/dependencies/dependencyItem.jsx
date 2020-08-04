@@ -9,10 +9,14 @@ const DependencyItem = (props) => {
   const [name, setName] = useState(null)
   const [imgUrl, setImgUrl] = useState(null)
   useEffect(() => {
-    Axios(toHttps(url)).then((data) => {
+    const httpsUrl = toHttps(url)
+
+    Axios(httpsUrl).then((data) => {
       const tempImgUrl = data.data.url
-      setImgUrl(getVisualUrl(type, tempImgUrl))
-      setName(data.data.name)
+      const visualUrl = getVisualUrl(type, tempImgUrl)
+      setImgUrl(visualUrl)
+      if (type === 'films') setName(data.data.title)
+      else setName(data.data.name)
     })
   }, [])
 

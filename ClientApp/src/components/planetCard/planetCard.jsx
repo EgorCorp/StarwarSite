@@ -11,20 +11,24 @@ const extractId = (url) => {
 }
 const _imageBase = 'https://starwars-visualguide.com/assets/img'
 
-const PlanetCard = ({selectedPlanet, onClickMore}) => {
+const PlanetCard = ({
+  selectedPlanet,
+  onClickMore,
+  onClickFilm,
+  hideDependencies,
+}) => {
   const num = extractId(selectedPlanet.url)
-  const url = _imageBase + '/planets/' + num + '.jpg'
-  //
-
-  // useEffect(() => {
-  //   setUrls(null)
-  // }, [])
+  let url = _imageBase + '/planets/' + num + '.jpg'
+  if (num == 1)
+    url = 'https://galacticvehicles.neocities.org/images/tatooine.jpg'
 
   const handleClick = (event) => {
     //
     if (onClickMore) onClickMore(selectedPlanet.residents)
   }
-
+  const handleFilmClick = (event) => {
+    if (onClickFilm) onClickFilm(selectedPlanet.films)
+  }
   return (
     <>
       <Card style={{width: '18rem'}}>
@@ -50,11 +54,20 @@ const PlanetCard = ({selectedPlanet, onClickMore}) => {
             <br />
             Terrain: {selectedPlanet.terrain}
             <br />
-            <DependencyButton
-              urls={selectedPlanet.residents}
-              label="Residents"
-              onClick={handleClick}
-            />
+            {!hideDependencies && (
+              <>
+                <DependencyButton
+                  urls={selectedPlanet.residents}
+                  label="Residents"
+                  onClick={handleClick}
+                />
+                <DependencyButton
+                  urls={selectedPlanet.films}
+                  label="Films"
+                  onClick={handleFilmClick}
+                />
+              </>
+            )}
           </Card.Text>
         </Card.Body>
       </Card>

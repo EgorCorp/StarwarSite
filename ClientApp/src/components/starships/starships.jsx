@@ -4,6 +4,7 @@ import './starships.css'
 import Spinner from 'react-bootstrap/Spinner'
 import StarshipCard from '../starshipCard/starshipCard'
 import Dependencies from '../dependencies/dependencies'
+import Pager from '../pager'
 
 const Starships = () => {
   const [starshipList, setStarshipList] = useState(null)
@@ -12,8 +13,8 @@ const Starships = () => {
 
   const [showSpinner, setShowSpinner] = useState(false)
   const [pilotUrls, setPilotUrls] = useState(null)
-  // const [starshipImg, setStarshipImg] = useState(null)
-
+  const [filmUrls, setFilmUrls] = useState(null)
+  console.log(starshipList)
   useEffect(() => {
     setShowSpinner(true)
     axios('https://swapi.dev/api/starships/').then((ships) => {
@@ -22,11 +23,10 @@ const Starships = () => {
     })
   }, [])
 
-  //if (starshipList) console.log(starshipList.url)
-
   const handleStarshipImg = (event, ship) => {
     event.preventDefault()
     setPilotUrls(null)
+    setFilmUrls(null)
     setSelectedStarship(ship)
   }
 
@@ -46,6 +46,7 @@ const Starships = () => {
         <StarshipCard
           selectedShip={selectedStarship}
           onClickMore={(urls) => setPilotUrls(urls)}
+          onClickFilm={(urls) => setFilmUrls(urls)}
         />
       )}
     </div>
@@ -71,6 +72,8 @@ const Starships = () => {
             </div>
           </div>
           <Dependencies type="characters" urls={pilotUrls} />
+          <Dependencies urls={filmUrls} type="films" />
+          <Pager />
         </div>
       )}
     </Fragment>

@@ -10,12 +10,21 @@ const extractId = (url) => {
 }
 
 const _imageBase = 'https://starwars-visualguide.com/assets/img'
-const StarshipCard = ({selectedShip, onClickMore}) => {
+const StarshipCard = ({
+  selectedShip,
+  onClickMore,
+  onClickFilm,
+  hideDependencies,
+}) => {
   const num = extractId(selectedShip.url)
   const url = _imageBase + '/starships/' + num + '.jpg'
   const handleClick = (event) => {
     //
     if (onClickMore) onClickMore(selectedShip.pilots)
+  }
+
+  const handleFilmClick = (event) => {
+    if (onClickFilm) onClickFilm(selectedShip.films)
   }
 
   return (
@@ -56,11 +65,20 @@ const StarshipCard = ({selectedShip, onClickMore}) => {
           Passengers:{' '}
           <span className="starValue"> {selectedShip.passengers}</span>
           <br />
-          <DependencyButton
-            urls={selectedShip.pilots}
-            label="Pilots"
-            onClick={handleClick}
-          />
+          {!hideDependencies && (
+            <>
+              <DependencyButton
+                urls={selectedShip.pilots}
+                label="Pilots"
+                onClick={handleClick}
+              />
+              <DependencyButton
+                urls={selectedShip.films}
+                label="Films"
+                onClick={handleFilmClick}
+              />
+            </>
+          )}
         </Card.Text>
       </Card.Body>
     </Card>

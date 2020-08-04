@@ -47,15 +47,25 @@ const Home = () => {
   }, [ships])
 
   const shipCard = () => (
-    <div>{oneShip && <StarshipCard selectedShip={oneShip} />}</div>
+    <div>
+      {oneShip && (
+        <StarshipCard selectedShip={oneShip} hideDependencies={true} />
+      )}
+    </div>
   )
 
   const planetCard = () => (
-    <div>{onePlanet && <PlanetCard selectedPlanet={onePlanet} />}</div>
+    <div>
+      {onePlanet && (
+        <PlanetCard selectedPlanet={onePlanet} hideDependencies={true} />
+      )}
+    </div>
   )
 
   const personCard = () => (
-    <div>{onePerson && <PersonCard person={onePerson} />}</div>
+    <div>
+      {onePerson && <PersonCard person={onePerson} hideDependencies={true} />}
+    </div>
   )
 
   return (

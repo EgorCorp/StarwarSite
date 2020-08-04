@@ -18,7 +18,7 @@ const Vehicles = () => {
       })
     }, 0)
   }, [])
-  console.log(vehiclesList)
+
   return (
     <div>
       {showSpinner && <Spinner animation="border" variant="light" />}

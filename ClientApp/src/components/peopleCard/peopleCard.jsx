@@ -10,8 +10,14 @@ const extractId = (url) => {
 }
 
 const _imageBase = 'https://starwars-visualguide.com/assets/img'
-
-const PersonCard = ({person, onClickHome, onClickVehicle, onClickStarship}) => {
+const PersonCard = ({
+  person,
+  onClickHome,
+  onClickVehicle,
+  onClickStarship,
+  onClickFilm,
+  hideDependencies,
+}) => {
   const num = extractId(person.url)
   const url = _imageBase + '/characters/' + num + '.jpg'
 
@@ -20,11 +26,13 @@ const PersonCard = ({person, onClickHome, onClickVehicle, onClickStarship}) => {
     if (onClickHome) onClickHome([person.homeworld])
   }
   const handleVehicleClick = (event) => {
-    console.log(person.vehicles, 'person.vehicles')
     if (onClickVehicle) onClickVehicle(person.vehicles)
   }
   const handleStarshipClick = (event) => {
     if (onClickStarship) onClickStarship(person.starships)
+  }
+  const handleFilmClick = (event) => {
+    if (onClickFilm) onClickFilm(person.films)
   }
 
   const btnRender = () => (
@@ -44,6 +52,11 @@ const PersonCard = ({person, onClickHome, onClickVehicle, onClickStarship}) => {
           urls={person.starships}
           label="Starships"
           onClick={handleStarshipClick}
+        />
+        <DependencyButton
+          urls={person.films}
+          label="Films"
+          onClick={handleFilmClick}
         />
       </div>
     </>
@@ -74,7 +87,7 @@ const PersonCard = ({person, onClickHome, onClickVehicle, onClickStarship}) => {
           Skin: {person.skin_color}
           <br />
         </Card.Text>
-        {btnRender()}
+        {!hideDependencies && btnRender()}
       </Card.Body>
     </Card>
   )
