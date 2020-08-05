@@ -10,6 +10,7 @@ import Planets from './components/planets/planets'
 import Vehicles from './components/vehicles/vehicles'
 import Dependencies from './components/dependencies/dependencies'
 import AboutSite from './components/aboutSite'
+import Species from './components/species/species'
 
 const TestDependencies = () => {
   return (
@@ -48,6 +49,7 @@ export default class App extends Component {
         <Route path="/vehicles" component={Vehicles} />
         <Route path="/test" component={TestDependencies} />
         <Route path="/about" component={AboutSite} />
+        <Route path="/species" component={Species} />
       </Layout>
     )
   }

@@ -73,6 +73,11 @@ export class NavMenu extends Component {
                       Vehicles
                     </NavLink>
                   </NavItem>
+                  <NavItem>
+                    <NavLink tag={Link} className="text-light" to="/species">
+                      Species
+                    </NavLink>
+                  </NavItem>
                 </ul>
               </Collapse>
             </Container>
