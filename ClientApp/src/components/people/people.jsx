@@ -5,9 +5,12 @@ import {useState, useEffect} from 'react'
 import PersonCard from '../peopleCard/peopleCard'
 import './people.css'
 import Dependencies from '../dependencies/dependencies'
+import Pager from '../pager'
 
 const People = () => {
   const [peopleList, setPeopleList] = useState(null)
+  const [page, setPage] = useState(null)
+  const [pageCount, setPageCount] = useState(null)
   const [showSpinner, setShowSpinner] = useState(false)
   const [selectedPeople, setSelectedPeople] = useState(null)
   const [homeUrls, setHomeUrls] = useState(null)
@@ -17,13 +20,35 @@ const People = () => {
 
   useEffect(() => {
     setShowSpinner(true)
-    setTimeout(() => {
+    if (!page) {
       axios('https://swapi.dev/api/people/').then((peoples) => {
         setPeopleList(peoples.data.results)
         setShowSpinner(false)
+        setPageCount(peoples.data.count)
       })
-    }, 0)
-  }, [])
+    } else {
+      axios('https://swapi.dev/api/people/?page=' + page).then((peoples) => {
+        setPeopleList(peoples.data.results)
+        setShowSpinner(false)
+        setHomeUrls(null)
+        setStarshipUrls(null)
+        setVehicleUrls(null)
+        setFilmUrls(null)
+        setSelectedPeople(null)
+      })
+    }
+  }, [page])
+
+  // useEffect(() => {
+  //   setShowSpinner(true)
+  //   setTimeout(() => {
+  //     axios('https://swapi.dev/api/people/').then((peoples) => {
+  //       setPeopleList(peoples.data.results)
+  //       setShowSpinner(false)
+  //     })
+  //   }, 0)
+  // }, [])
+
   const handleClick = (event, people) => {
     event.preventDefault()
     setHomeUrls(null)
@@ -75,6 +100,11 @@ const People = () => {
           <Dependencies urls={filmUrls} type="films" />
         </div>
       )}
+      <Pager
+        count={pageCount}
+        page1Count={10}
+        onClick={(page) => setPage(page)}
+      />
     </div>
   )
 }
