@@ -1,18 +1,33 @@
-import React from 'react'
+import React, {useState} from 'react'
 import Pagination from 'react-bootstrap/Pagination'
 import './pager.css'
 
-const Pager = ({count, page1Count}) => {
-  const pages = count / page1Count
+const Pager = ({count, page1Count, onClick}) => {
+  const [selectedPage, setSelectedPage] = useState(0)
 
+  //* расчет количества страниц
+  const pages = count / page1Count
+  let pageArr = []
+  for (let index = 0; index < pages; index++) {
+    pageArr.push(index)
+  }
+
+  const handlePageClick = (page) => {
+    onClick(page)
+    setSelectedPage(page - 1)
+  }
   return (
     <div>
       <Pagination>
-        <Pagination.Item active>{1}</Pagination.Item>
-        <Pagination.Item>{2}</Pagination.Item>
-        <Pagination.Item>{3}</Pagination.Item>
-        <Pagination.Item>{4}</Pagination.Item>
-        <Pagination.Item>{5}</Pagination.Item>
+        {pageArr.map((page) => (
+          <Pagination.Item
+            active={page === selectedPage}
+            key={page}
+            onClick={() => handlePageClick(page + 1)}
+          >
+            {page + 1}
+          </Pagination.Item>
+        ))}
       </Pagination>
     </div>
   )

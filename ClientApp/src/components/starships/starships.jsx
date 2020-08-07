@@ -8,20 +8,36 @@ import Pager from '../pager'
 
 const Starships = () => {
   const [starshipList, setStarshipList] = useState(null)
-
+  const [starshipPage, setStarshipPage] = useState(null)
   const [selectedStarship, setSelectedStarship] = useState(null)
-
+  const [starshipCount, setStarshipCount] = useState(null)
   const [showSpinner, setShowSpinner] = useState(false)
   const [pilotUrls, setPilotUrls] = useState(null)
   const [filmUrls, setFilmUrls] = useState(null)
+
   console.log(starshipList)
+
   useEffect(() => {
     setShowSpinner(true)
-    axios('https://swapi.dev/api/starships/').then((ships) => {
-      setStarshipList(ships.data.results)
-      setShowSpinner(false)
-    })
-  }, [])
+
+    //http://swapi.dev/api/starships/?page=2
+    if (!starshipPage) {
+      axios('https://swapi.dev/api/starships/').then((ships) => {
+        setStarshipList(ships.data.results)
+        setStarshipCount(ships.data.count)
+
+        setShowSpinner(false)
+      })
+    } else {
+      axios('https://swapi.dev/api/starships/?page=' + starshipPage).then(
+        (ships) => {
+          setStarshipList(ships.data.results)
+
+          setShowSpinner(false)
+        }
+      )
+    }
+  }, [starshipPage])
 
   const handleStarshipImg = (event, ship) => {
     event.preventDefault()
@@ -73,9 +89,13 @@ const Starships = () => {
           </div>
           <Dependencies type="characters" urls={pilotUrls} />
           <Dependencies urls={filmUrls} type="films" />
-          <Pager />
         </div>
       )}
+      <Pager
+        count={starshipCount}
+        page1Count={10}
+        onClick={(page) => setStarshipPage(page)}
+      />
     </Fragment>
   )
 }

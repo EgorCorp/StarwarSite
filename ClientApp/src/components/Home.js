@@ -4,6 +4,7 @@ import './home.css'
 import StarshipCard from './starshipCard/starshipCard'
 import PlanetCard from './planetCard/planetCard'
 import PersonCard from './peopleCard/peopleCard'
+import DependencyCircle from './dependencies/dependencyCircle'
 
 const Home = () => {
   const [ships, setShips] = useState([])
@@ -70,6 +71,16 @@ const Home = () => {
 
   return (
     <div>
+      <DependencyCircle
+        imgUrl="https://opt-1031816.ssl.1c-bitrix-cdn.ru/upload/resize_cache/iblock/c33/750_400_1/c33dfb90268b89637fa1a78ea923848d.jpg?1528196410143742"
+        name="Акиту_ин"
+        size="50px"
+      />
+      <DependencyCircle
+        imgUrl="https://opt-1031816.ssl.1c-bitrix-cdn.ru/upload/resize_cache/iblock/c33/750_400_1/c33dfb90268b89637fa1a78ea923848d.jpg?1528196410143742"
+        name="Акиту_ин"
+        size="75px"
+      />
       <div className="home">HOME</div>
       <div className="item">
         <div className="item2">

@@ -5,9 +5,12 @@ import './planets.css'
 import {useState, useEffect} from 'react'
 import PlanetCard from '../planetCard/planetCard'
 import Dependencies from '../dependencies/dependencies'
+import Pager from '../pager'
 
 const Planets = () => {
   const [planetList, setPlanetList] = useState(null)
+  const [page, setPage] = useState(null)
+  const [pageCount, setPageCount] = useState(null)
   const [showSpinner, setShowSpinner] = useState(false)
   const [selectedPlanet, setSelectedPlanet] = useState(null)
   const [urls, setUrls] = useState(null)
@@ -15,13 +18,23 @@ const Planets = () => {
 
   useEffect(() => {
     setShowSpinner(true)
-    setTimeout(() => {
+
+    if (!page) {
       axios('https://swapi.dev/api/planets/').then((planets) => {
         setPlanetList(planets.data.results)
         setShowSpinner(false)
+        setPageCount(planets.data.count)
       })
-    }, 0)
-  }, [])
+    } else {
+      axios('https://swapi.dev/api/planets/?page=' + page).then((planets) => {
+        setPlanetList(planets.data.results)
+        setSelectedPlanet(null)
+        setUrls(null)
+        setFilmUrls(null)
+        setShowSpinner(false)
+      })
+    }
+  }, [page])
   const handleClick = (event, planet) => {
     event.preventDefault()
     setUrls(null)
@@ -70,6 +83,11 @@ const Planets = () => {
           <Dependencies urls={filmUrls} type="films" />
         </div>
       )}
+      <Pager
+        count={pageCount}
+        page1Count={10}
+        onClick={(page) => setPage(page)}
+      />
     </div>
   )
 }

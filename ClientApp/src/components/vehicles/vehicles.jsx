@@ -4,38 +4,57 @@ import Spinner from 'react-bootstrap/Spinner'
 import {useState, useEffect} from 'react'
 import VehicleCard from '../vehicleCard/vehiclesCard'
 import './vehicles.css'
+import Pager from '../pager'
 
 const Vehicles = () => {
   const [vehiclesList, setVehiclesList] = useState(null)
+  const [page, setPage] = useState(null)
+  const [pageCount, setPageCount] = useState(null)
   const [showSpinner, setShowSpinner] = useState(false)
-
   useEffect(() => {
-    setShowSpinner(true)
-    setTimeout(() => {
+    if (!page) {
       axios('https://swapi.dev/api/vehicles/').then((vehicles) => {
         setVehiclesList(vehicles.data.results)
         setShowSpinner(false)
+        setPageCount(vehicles.data.count)
       })
-    }, 0)
-  }, [])
+    } else {
+      axios('https://swapi.dev/api/vehicles/?page=' + page).then((vehicles) => {
+        setVehiclesList(vehicles.data.results)
+        setShowSpinner(false)
+      })
+    }
+  }, [page])
+
+  // useEffect(() => {
+  //   setShowSpinner(true)
+  //   setTimeout(() => {
+  //     axios('https://swapi.dev/api/vehicles/').then((vehicles) => {
+  //       setVehiclesList(vehicles.data.results)
+  //       setShowSpinner(false)
+  //     })
+  //   }, 0)
+  // }, [])
 
   return (
     <div>
       {showSpinner && <Spinner animation="border" variant="light" />}
-
       <div className="container">
         <div className="row">
           <div className="col-md">
             <div className="vehiclesCards">
               {vehiclesList &&
-                vehiclesList
-                  //.slice(0, 3)
-                  .map((vehicle) => (
-                    <VehicleCard key={vehicle.name} vehicle={vehicle} />
-                  ))}
+                vehiclesList.map((vehicle) => (
+                  <VehicleCard key={vehicle.name} vehicle={vehicle} />
+                ))}
             </div>
           </div>
         </div>
+        <Pager
+          count={pageCount}
+          page1Count={10}
+          onClick={(page) => setPage(page)}
+        />
       </div>
     </div>
   )
