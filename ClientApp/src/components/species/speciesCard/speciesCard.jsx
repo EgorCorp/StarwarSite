@@ -4,6 +4,7 @@ import {
   formatValue,
   FormatDateForView,
 } from '../../../utils/utils'
+import Dependencies from '../../dependencies/dependencies'
 
 const SpeciesCard = ({speciesOne}) => {
   console.log(speciesOne)
@@ -36,6 +37,29 @@ const SpeciesCard = ({speciesOne}) => {
         Colors of skin: {speciesOne.skin_colors}
         <br />
         Language: {speciesOne.language}
+        <br />
+        {speciesOne && (
+          <>
+            <Dependencies
+              urls={[speciesOne.homeworld]}
+              type="planets"
+              variant="circle"
+              size="50px"
+            />
+            <Dependencies
+              urls={speciesOne.films}
+              type="films"
+              variant="card"
+              size="75px"
+            />
+            <Dependencies
+              urls={speciesOne.people}
+              type="characters"
+              variant="card"
+              size="75px"
+            />
+          </>
+        )}
       </div>
     </div>
   )

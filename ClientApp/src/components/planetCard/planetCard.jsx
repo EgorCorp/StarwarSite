@@ -2,7 +2,7 @@ import React, {useState, useEffect} from 'react'
 import Card from 'react-bootstrap/Card'
 import './planetCard.css'
 import {FormatDateForView, formatValue} from '../../utils/utils'
-import Residents from '../residents/residents'
+
 import DependencyButton from '../dependencies/dependencyButton'
 
 const extractId = (url) => {

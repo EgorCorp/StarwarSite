@@ -7,7 +7,7 @@ const DependencyCircle = ({imgUrl, name, size}) => {
       <img
         className="CircleImg"
         src={imgUrl}
-        alt={name}
+        alt=""
         style={{width: size, height: size}}
       />
       <span>{name}</span>
