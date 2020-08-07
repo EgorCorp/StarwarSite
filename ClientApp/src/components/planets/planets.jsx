@@ -4,8 +4,6 @@ import Spinner from 'react-bootstrap/Spinner'
 import './planets.css'
 import {useState, useEffect} from 'react'
 import PlanetCard from '../planetCard/planetCard'
-import Resident from '../resident/resident'
-import Residents from '../residents/residents'
 import Dependencies from '../dependencies/dependencies'
 
 const Planets = () => {

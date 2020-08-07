@@ -35,32 +35,32 @@ const PersonCard = ({
     if (onClickFilm) onClickFilm(person.films)
   }
 
-  const btnRender = () => (
-    <>
-      <div className="peopleBtn">
-        <DependencyButton
-          urls={[person.homeworld]}
-          label="Home"
-          onClick={handleHomeClick}
-        />
-        <DependencyButton
-          urls={person.vehicles}
-          label="Vehicles"
-          onClick={handleVehicleClick}
-        />
-        <DependencyButton
-          urls={person.starships}
-          label="Starships"
-          onClick={handleStarshipClick}
-        />
-        <DependencyButton
-          urls={person.films}
-          label="Films"
-          onClick={handleFilmClick}
-        />
-      </div>
-    </>
-  )
+  // const btnRender = () => (
+  //   <>
+  //     <div className="peopleBtn">
+  //       <DependencyButton
+  //         urls={[person.homeworld]}
+  //         label="Home"
+  //         onClick={handleHomeClick}
+  //       />
+  //       <DependencyButton
+  //         urls={person.vehicles}
+  //         label="Vehicles"
+  //         onClick={handleVehicleClick}
+  //       />
+  //       <DependencyButton
+  //         urls={person.starships}
+  //         label="Starships"
+  //         onClick={handleStarshipClick}
+  //       />
+  //       <DependencyButton
+  //         urls={person.films}
+  //         label="Films"
+  //         onClick={handleFilmClick}
+  //       />
+  //     </div>
+  //   </>
+  // )
 
   return (
     <Card style={{width: '18rem'}}>
@@ -87,7 +87,40 @@ const PersonCard = ({
           Skin: {person.skin_color}
           <br />
         </Card.Text>
-        {!hideDependencies && btnRender()}
+        <div className="peopleBtn">
+          <div>
+            {!hideDependencies && (
+              <>
+                <DependencyButton
+                  urls={[person.homeworld]}
+                  label="Home"
+                  onClick={handleHomeClick}
+                />
+                <DependencyButton
+                  urls={person.vehicles}
+                  label="Vehicles"
+                  onClick={handleVehicleClick}
+                />
+              </>
+            )}
+          </div>
+          <div>
+            {!hideDependencies && (
+              <>
+                <DependencyButton
+                  urls={person.starships}
+                  label="Starships"
+                  onClick={handleStarshipClick}
+                />
+                <DependencyButton
+                  urls={person.films}
+                  label="Films"
+                  onClick={handleFilmClick}
+                />
+              </>
+            )}
+          </div>
+        </div>
       </Card.Body>
     </Card>
   )

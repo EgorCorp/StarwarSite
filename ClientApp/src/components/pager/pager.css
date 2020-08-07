@@ -1,7 +1,13 @@
 .page-link {
   background: gray;
+  color: plum;
   border: none;
 }
 .pagination {
   justify-content: center;
+}
+
+.page-item.active .page-link {
+  background-color: plum;
+  border-color: plum;
 }

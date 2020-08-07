@@ -2,6 +2,6 @@ import React from 'react'
 import './aboutSite.css'
 
 const AboutSite = () => {
-  return <div>rdfgdf</div>
+  return <div></div>
 }
 export default AboutSite
