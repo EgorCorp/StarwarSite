@@ -17,19 +17,27 @@ A:active {
   margin: auto 0;
 }
 
-.aboutLink {
-  display: flex;
-  align-items: center;
-  justify-content: flex-end;
-  width: 100px;
-}
-
 .footerEgor {
-  display: flex;
+  display: inline-flex;
   justify-content: center;
-  background-color: gray;
-  margin-top: 50px;
 }
 .footerLink {
   margin-left: 20px;
+}
+.aboutLink {
+  transition: all 0.2s ease-in-out;
+  display: inline-flex;
+  align-items: center;
+  margin-left: 30px;
+}
+
+.aboutLink:hover {
+  transform: scale(1.1);
+}
+
+.Footer {
+  display: flex;
+  background-color: gray;
+  justify-content: center;
+  margin-top: 30px;
 }

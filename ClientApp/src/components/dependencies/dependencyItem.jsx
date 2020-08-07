@@ -3,12 +3,14 @@ import './dependencies.css'
 import DependencyCard from './dependencyCard'
 import Axios from 'axios'
 import {getVisualUrl, toHttps} from '../../utils/utils'
+import DependencyCircle from './dependencyCircle'
 
 const DependencyItem = (props) => {
-  const {url, type} = props
+  const {url, type, variant, size} = props
   const [name, setName] = useState(null)
   const [imgUrl, setImgUrl] = useState(null)
   useEffect(() => {
+    if (!url) return
     const httpsUrl = toHttps(url)
 
     Axios(httpsUrl).then((data) => {
@@ -22,7 +24,12 @@ const DependencyItem = (props) => {
 
   return (
     <div className="dependencyItem">
-      {name && imgUrl && <DependencyCard imgUrl={imgUrl} name={name} />}
+      {(variant === 'card' || !variant) && name && imgUrl && (
+        <DependencyCard imgUrl={imgUrl} name={name} />
+      )}
+      {variant === 'circle' && name && imgUrl && (
+        <DependencyCircle imgUrl={imgUrl} name={name} size={size} />
+      )}
     </div>
   )
 }

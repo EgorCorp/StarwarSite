@@ -1,41 +1,74 @@
 import React from 'react'
-import {
-  getVisualUrl,
-  formatValue,
-  FormatDateForView,
-} from '../../../utils/utils'
+import {getVisualUrl, FormatDateForView} from '../../../utils/utils'
+import Dependencies from '../../dependencies/dependencies'
+import './speciesCard.css'
 
 const SpeciesCard = ({speciesOne}) => {
   console.log(speciesOne)
   return (
     <div className="speciesCard">
-      <div className="speciesCardImg">
-        <img
-          src={getVisualUrl('species', speciesOne.url)}
-          alt={speciesOne.name}
-        />
+      <img
+        src={getVisualUrl('species', speciesOne.url)}
+        alt={speciesOne.name}
+        className="imgSpecies"
+      />
+      <div className="cardTextFlex">
+        <div className="speciesCardTitle">{speciesOne.name}</div>
+        <div className="speciesCardText">
+          Average height: {speciesOne.average_height} sm
+          <br />
+          Average lifespan: {speciesOne.average_lifespan} years
+          <br />
+          Classification: {speciesOne.classification}
+          <br />
+          Created: {FormatDateForView(speciesOne.created)}
+          <br />
+          Designation: {speciesOne.designation}
+          <br />
+          Edited: {FormatDateForView(speciesOne.edited)}
+          <br />
+          Colors of eyes: {speciesOne.eye_colors}
+          <br />
+          Colors of hair: {speciesOne.hair_colors}
+          <br />
+          Colors of skin: {speciesOne.skin_colors}
+          <br />
+          Language: {speciesOne.language}
+          <br />
+        </div>
       </div>
-      <div className="speciesCardTitle">{speciesOne.name}</div>
-      <div className="speciesCardText">
-        Average height: {speciesOne.average_height} sm
-        <br />
-        Average lifespan: {speciesOne.average_lifespan} years
-        <br />
-        Classification: {speciesOne.classification}
-        <br />
-        Created: {FormatDateForView(speciesOne.created)}
-        <br />
-        Designation: {speciesOne.designation}
-        <br />
-        Edited: {FormatDateForView(speciesOne.edited)}
-        <br />
-        Colors of eyes: {speciesOne.eye_colors}
-        <br />
-        Colors of hair: {speciesOne.hair_colors}
-        <br />
-        Colors of skin: {speciesOne.skin_colors}
-        <br />
-        Language: {speciesOne.language}
+      <div className="speciesDependency">
+        {speciesOne && (
+          <>
+            <div className="homeworld">
+              <div className="speciesItem">Homeworld</div>
+              <Dependencies
+                urls={[speciesOne.homeworld]}
+                type="planets"
+                variant="circle"
+                size="50px"
+              />
+            </div>
+            <div className="films">
+              <div className="speciesItem">Films</div>
+              <Dependencies
+                urls={speciesOne.films}
+                type="films"
+                variant="card"
+                size="75px"
+              />
+            </div>
+            <div className="people">
+              <div className="speciesItem">People</div>
+              <Dependencies
+                urls={speciesOne.people}
+                type="characters"
+                variant="card"
+                size="75px"
+              />
+            </div>
+          </>
+        )}
       </div>
     </div>
   )

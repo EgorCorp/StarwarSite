@@ -4,7 +4,7 @@ import Card from 'react-bootstrap/Card'
 
 const DependencyCard = ({imgUrl, name}) => {
   return (
-    <Card style={{width: '10rem'}}>
+    <Card style={{width: '7rem'}}>
       <Card.Img variant="top" src={imgUrl} />
       <Card.Body>
         <Card.Title>{name}</Card.Title>

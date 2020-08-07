@@ -1,0 +1,48 @@
+.speciesCard {
+  background-color: gainsboro;
+  display: inline-flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  justify-content: flex-start;
+  align-items: flex-start;
+  ter
+}
+.speciesCard .imgSpecies {
+  display: inline;
+}
+
+.speciesCard .speciesCardText {
+  display: inline;
+}
+
+.speciesCard .speciesCardTitle {
+  display: block;
+  color: plum;
+  font-size: 40px;
+  text-align: center;
+}
+
+.speciesCard .cardTextFlex {
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  align-items: flex-start;
+  margin-left: 40px;
+  margin-right: 40px;
+}
+
+.speciesCard .speciesDependency {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  justify-content: flex-start;
+  align-items: flex-start;
+}
+
+.speciesCard .homeworld {
+}
+
+.speciesCard .speciesItem {
+  color: plum;
+  font-size: 20px;
+}
