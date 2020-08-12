@@ -10,7 +10,7 @@ const ModalDialog = ({show, handleClose, title, body}) => {
       </Modal.Header>
       <Modal.Body>{body}</Modal.Body>
       <Modal.Footer>
-        <button variant="secondary" onClick={handleClose}>
+        <button className="btnClose" variant="secondary" onClick={handleClose}>
           Close
         </button>
       </Modal.Footer>

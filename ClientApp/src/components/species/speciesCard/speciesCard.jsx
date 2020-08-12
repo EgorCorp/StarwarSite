@@ -46,7 +46,7 @@ const SpeciesCard = ({speciesOne}) => {
                 urls={[speciesOne.homeworld]}
                 type="planets"
                 variant="circle"
-                size="50px"
+                size="100px"
               />
             </div>
             <div className="speciesItem">

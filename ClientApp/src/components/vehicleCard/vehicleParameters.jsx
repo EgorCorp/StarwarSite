@@ -5,7 +5,7 @@ import {FormatDateForView} from '../../utils/utils'
 const VehicleParameters = ({vehicle}) => {
   const showParam = (title, value) => (
     <tr>
-      <td>{title}</td>
+      <td>{title} :</td>
       <td>{value}</td>
     </tr>
   )
@@ -30,20 +30,3 @@ const VehicleParameters = ({vehicle}) => {
   )
 }
 export default VehicleParameters
-
-cargo_capacity: '50000'
-consumables: '2 months'
-cost_in_credits: '150000'
-created: '2014-12-10T15:36:25.724000Z'
-crew: '46'
-edited: '2014-12-20T21:30:21.661000Z'
-films: (2)[('http://swapi.dev/api/films/1/', 'http://swapi.dev/api/films/5/')]
-length: '36.8 '
-manufacturer: 'Corellia Mining Corporation'
-max_atmosphering_speed: '30'
-model: 'Digger Crawler'
-name: 'Sand Crawler'
-passengers: '30'
-pilots: []
-url: 'http://swapi.dev/api/vehicles/4/'
-vehicle_class: 'wheeled'

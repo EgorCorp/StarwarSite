@@ -3,6 +3,7 @@ import Card from 'react-bootstrap/Card'
 import {FormatDateForView, extractId, _imageBase} from '../../utils/utils'
 import {useState} from 'react'
 import ModalDialog from '../modal/modal'
+import './style.css'
 import VehicleParameters from './vehicleParameters'
 
 const VehicleCard = ({vehicle}) => {
@@ -20,7 +21,9 @@ const VehicleCard = ({vehicle}) => {
         <Card.Img variant="top" src={url} />
         <Card.Body>
           <Card.Title>{vehicle.name}</Card.Title>
-          <button onClick={handleClick}>MOre</button>
+          <button className="buttonMore" onClick={handleClick}>
+            More
+          </button>
           <ModalDialog
             show={showMore}
             handleClose={() => setShowMore(false)}

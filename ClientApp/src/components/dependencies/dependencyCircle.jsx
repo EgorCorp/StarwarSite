@@ -10,7 +10,7 @@ const DependencyCircle = ({imgUrl, name, size}) => {
         alt=""
         style={{width: size, height: size}}
       />
-      <span>{name}</span>
+      <span className="nameCircle">{name}</span>
     </div>
   )
 }
