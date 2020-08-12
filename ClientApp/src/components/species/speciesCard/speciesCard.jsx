@@ -40,8 +40,8 @@ const SpeciesCard = ({speciesOne}) => {
       <div className="speciesDependency">
         {speciesOne && (
           <>
-            <div className="homeworld">
-              <div className="speciesItem">Homeworld</div>
+            <div className="speciesItem">
+              <div className="speciesTitle">Homeworld</div>
               <Dependencies
                 urls={[speciesOne.homeworld]}
                 type="planets"
@@ -49,8 +49,8 @@ const SpeciesCard = ({speciesOne}) => {
                 size="50px"
               />
             </div>
-            <div className="films">
-              <div className="speciesItem">Films</div>
+            <div className="speciesItem">
+              <div className="speciesTitle">Films</div>
               <Dependencies
                 urls={speciesOne.films}
                 type="films"
@@ -58,8 +58,8 @@ const SpeciesCard = ({speciesOne}) => {
                 size="75px"
               />
             </div>
-            <div className="people">
-              <div className="speciesItem">People</div>
+            <div className="speciesItem">
+              <div className="speciesTitle">People</div>
               <Dependencies
                 urls={speciesOne.people}
                 type="characters"

@@ -1,14 +1,17 @@
 .speciesCard {
-  background-color: gainsboro;
+  border: 4px solid white;
+  background-color: cornflowerblue;
   display: inline-flex;
   flex-direction: row;
   flex-wrap: wrap;
   justify-content: flex-start;
   align-items: flex-start;
-  ter
+  padding: 15px;
+  margin-bottom: 30px;
 }
 .speciesCard .imgSpecies {
   display: inline;
+  border: aquamarine 5px solid;
 }
 
 .speciesCard .speciesCardText {
@@ -17,7 +20,7 @@
 
 .speciesCard .speciesCardTitle {
   display: block;
-  color: plum;
+  color: aquamarine;
   font-size: 40px;
   text-align: center;
 }
@@ -35,14 +38,19 @@
   display: flex;
   flex-direction: row;
   flex-wrap: wrap;
-  justify-content: flex-start;
-  align-items: flex-start;
-}
-
-.speciesCard .homeworld {
+  justify-content: space-between;
+  align-items: center;
 }
 
 .speciesCard .speciesItem {
-  color: plum;
+  margin-top: 20px;
+  margin-left: 20px;
+  border: 6px double white;
+  padding: 10px;
+}
+
+.speciesCard .speciesTitle {
+  color: aquamarine;
   font-size: 20px;
+  text-align: center;
 }
