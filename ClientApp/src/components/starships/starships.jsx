@@ -32,7 +32,9 @@ const Starships = () => {
       axios('https://swapi.dev/api/starships/?page=' + starshipPage).then(
         (ships) => {
           setStarshipList(ships.data.results)
-
+          setSelectedStarship(null)
+          setPilotUrls(null)
+          setFilmUrls(null)
           setShowSpinner(false)
         }
       )

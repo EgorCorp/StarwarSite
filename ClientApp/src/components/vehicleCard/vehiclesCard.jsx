@@ -5,6 +5,7 @@ import {useState} from 'react'
 import ModalDialog from '../modal/modal'
 import './style.css'
 import VehicleParameters from './vehicleParameters'
+import ParametersTable from '../parameterTable'
 
 const VehicleCard = ({vehicle}) => {
   const num = extractId(vehicle.url)
@@ -28,7 +29,15 @@ const VehicleCard = ({vehicle}) => {
             show={showMore}
             handleClose={() => setShowMore(false)}
             title={vehicle.name}
-            body={<VehicleParameters vehicle={vehicle} />}
+            //body={<VehicleParameters vehicle={vehicle} />}
+            body={
+              <ParametersTable
+                parameters={[
+                  {title: 'Cargo capacity', value: vehicle.cargo_capacity},
+                  {title: 'Consumables', value: vehicle.consumables},
+                ]}
+              />
+            }
           />
         </Card.Body>
       </Card>
