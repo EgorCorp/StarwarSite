@@ -3,6 +3,7 @@ import Card from 'react-bootstrap/Card'
 import './planetCard.css'
 import {FormatDateForView, formatValue} from '../../utils/utils'
 import DependencyButton from '../dependencies/dependencyButton'
+import ParametersTable from '../parameterTable'
 
 const extractId = (url) => {
   const idRegExp = /\/([0-9]*)\/$/
@@ -35,24 +36,36 @@ const PlanetCard = ({
         <Card.Body>
           <Card.Title>{selectedPlanet.name}</Card.Title>
           <Card.Text>
-            Climate: {selectedPlanet.climate}
-            <br />
-            Created: {FormatDateForView(selectedPlanet.created)}
-            <br />
-            Diameter: {formatValue(selectedPlanet.diameter, true)}
-            Edited: {FormatDateForView(selectedPlanet.edited)}
-            <br />
-            Gravity: {selectedPlanet.gravity}
-            <br />
-            Orbital period: {selectedPlanet.orbital_period}
-            <br />
-            Population: {formatValue(selectedPlanet.population, true)}
-            Rotation period: {selectedPlanet.rotation_period}
-            <br />
-            Surface water: {selectedPlanet.surface_water}
-            <br />
-            Terrain: {selectedPlanet.terrain}
-            <br />
+            <ParametersTable
+              parameters={[
+                {title: 'Climate', value: selectedPlanet.climate},
+                {
+                  title: 'Created',
+                  value: FormatDateForView(selectedPlanet.created),
+                },
+                {
+                  title: 'Diameter',
+                  value: formatValue(selectedPlanet.diameter, true),
+                },
+                {
+                  title: 'Edited',
+                  value: FormatDateForView(selectedPlanet.edited),
+                },
+                {title: 'Gravity', value: selectedPlanet.gravity},
+                {title: 'Orbital period', value: selectedPlanet.orbital_period},
+                {
+                  title: 'Population',
+                  value: formatValue(selectedPlanet.population, true),
+                },
+                {
+                  title: 'Rotation period',
+                  value: selectedPlanet.rotation_period,
+                },
+                {title: 'Surface water', value: selectedPlanet.surface_water},
+                {title: 'Terrain', value: selectedPlanet.terrain},
+              ]}
+            />
+
             {!hideDependencies && (
               <>
                 <DependencyButton

@@ -35,6 +35,16 @@ const VehicleCard = ({vehicle}) => {
                 parameters={[
                   {title: 'Cargo capacity', value: vehicle.cargo_capacity},
                   {title: 'Consumables', value: vehicle.consumables},
+                  {title: 'Cost', value: vehicle.cost_in_credits},
+                  {title: 'Created', value: FormatDateForView(vehicle.created)},
+                  {title: 'Crew', value: vehicle.crew},
+                  {title: 'Edited', value: FormatDateForView(vehicle.edited)},
+                  {title: 'Length', value: vehicle.length},
+                  {title: 'Manufacturer', value: vehicle.manufacturer},
+                  {title: 'Speed', value: vehicle.max_atmosphering_speed},
+                  {title: 'Model', value: vehicle.model},
+                  {title: 'Passengers', value: vehicle.passengers},
+                  {title: 'Vehicle class', value: vehicle.vehicle_class},
                 ]}
               />
             }
@@ -45,3 +55,19 @@ const VehicleCard = ({vehicle}) => {
   )
 }
 export default VehicleCard
+// cargo_capacity: '50000'
+// consumables: '2 months'
+// cost_in_credits: '150000'
+// created: '2014-12-10T15:36:25.724000Z'
+// crew: '46'
+// edited: '2014-12-20T21:30:21.661000Z'
+// films: (2)[('http://swapi.dev/api/films/1/', 'http://swapi.dev/api/films/5/')]
+// length: '36.8 '
+// manufacturer: 'Corellia Mining Corporation'
+// max_atmosphering_speed: '30'
+// model: 'Digger Crawler'
+// name: 'Sand Crawler'
+// passengers: '30'
+// pilots: []
+// url: 'http://swapi.dev/api/vehicles/4/'
+// vehicle_class: 'wheeled'

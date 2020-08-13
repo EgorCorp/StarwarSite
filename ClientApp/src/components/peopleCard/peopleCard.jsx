@@ -3,6 +3,7 @@ import Card from 'react-bootstrap/Card'
 import {FormatDateForView} from '../../utils/utils'
 import DependencyButton from '../dependencies/dependencyButton'
 import './peopleCard.css'
+import ParametersTable from '../parameterTable'
 
 const extractId = (url) => {
   const idRegExp = /\/([0-9]*)\/$/
@@ -68,24 +69,19 @@ const PersonCard = ({
       <Card.Body>
         <Card.Title>{person.name}</Card.Title>
         <Card.Text>
-          Birthday: {person.birth_year}
-          <br />
-          Created: {FormatDateForView(person.created)}
-          <br />
-          Edited: {FormatDateForView(person.edited)}
-          <br />
-          Eye color: {person.eye_color}
-          <br />
-          Gender: {person.gender}
-          <br />
-          Hair color: {person.hair_color}
-          <br />
-          Height: {person.height}
-          <br />
-          Mass: {person.mass}
-          <br />
-          Skin: {person.skin_color}
-          <br />
+          <ParametersTable
+            parameters={[
+              {title: 'Birthday', value: person.birth_year},
+              {title: 'Created', value: FormatDateForView(person.created)},
+              {title: 'Edited', value: FormatDateForView(person.edited)},
+              {title: 'Eye color', value: person.eye_color},
+              {title: 'Gender', value: person.gender},
+              {title: 'Hair color', value: person.hair_color},
+              {title: 'Height', value: person.height},
+              {title: 'Mass', value: person.mass},
+              {title: 'Skin', value: person.skin_color},
+            ]}
+          />
         </Card.Text>
         <div className="peopleBtn">
           <div>

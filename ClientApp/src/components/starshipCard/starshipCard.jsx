@@ -3,6 +3,7 @@ import Card from 'react-bootstrap/Card'
 import './starshipCard.css'
 import {formatValue} from '../../utils/utils'
 import DependencyButton from '../dependencies/dependencyButton'
+import ParametersTable from '../parameterTable'
 
 const extractId = (url) => {
   const idRegExp = /\/([0-9]*)\/$/
@@ -33,38 +34,30 @@ const StarshipCard = ({
       <Card.Body>
         <Card.Title>{selectedShip.name}</Card.Title>
         <Card.Text>
-          Model: {formatValue(selectedShip.model, false)}
-          Manufacturer:
-          <span className="starValue">{selectedShip.manufacturer}</span>
-          <br />
-          Class:
-          <span className="starValue"> {selectedShip.starship_class}</span>
-          <br />
-          Cost:{' '}
-          <span className="starValue">
-            {formatValue(selectedShip.cost_in_credits, true)}
-          </span>
-          Speed:{' '}
-          <span className="starValue">
-            {selectedShip.max_atmosphering_speed}
-          </span>
-          <br />
-          Hyperdrive Rating:{' '}
-          <span className="starValue">{selectedShip.hyperdrive_rating}</span>
-          <br />
-          MGLT: <span className="starValue"> {selectedShip.MGLT}</span>
-          <br />
-          Length: <span className="starValue"> {selectedShip.length}</span>
-          <br />
-          Cargo Capacity:{' '}
-          <span className="starValue">
-            {formatValue(selectedShip.cargo_capacity, true)}
-          </span>
-          Mimimum Crew: <span className="starValue"> {selectedShip.crew}</span>
-          <br />
-          Passengers:{' '}
-          <span className="starValue"> {selectedShip.passengers}</span>
-          <br />
+          <ParametersTable
+            parameters={[
+              {title: 'Model', value: selectedShip.model},
+              {title: 'Class', value: selectedShip.starship_class},
+              {
+                title: 'Cost',
+                value: formatValue(selectedShip.cost_in_credits, true),
+              },
+              {title: 'Speed', value: selectedShip.max_atmosphering_speed},
+              {
+                title: 'Hyperdrive Rating',
+                value: selectedShip.hyperdrive_rating,
+              },
+              {title: 'MGLT', value: selectedShip.MGLT},
+              {title: 'Length', value: selectedShip.length},
+              {
+                title: 'Cargo capacity',
+                value: formatValue(selectedShip.cargo_capacity, true),
+              },
+              {title: 'Minimum Crew', value: selectedShip.crew},
+              {title: 'Passenger', value: selectedShip.passengers},
+            ]}
+          />
+
           {!hideDependencies && (
             <>
               <DependencyButton
